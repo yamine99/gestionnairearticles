@@ -3,7 +3,7 @@
 ##### Cette application utilse un serveur mysql
 ## Architecture 
 ### Backend 
-########### <img src="architecture.png" alt="My cool logo"/>
+ <img src="https://github.com/yamine99/gestionnairearticles/blob/main/architecture.PNG" />
    
 ### Front
 ###### Bootstrap 5.3.1
