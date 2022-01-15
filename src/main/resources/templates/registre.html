@@ -15,11 +15,9 @@
             <p>Bienvenue dans votre Gestionnaire de Boutique </p>
            </div>
 
-    <div th:if="${message}" class="alert alert-danger text-center">
-            [[${message}]]
-    </div>
-            <form   th:action="@{/login/user/}"   method="post" th:object="${user}">
-                 <h3>Se connecter</h3>
+
+            <form th:action="@{/register/user/save}" method="post" th:object="${user}">
+                 <h3>S'enregistrer</h3>
                 <div class="border border-secondary rounded-2 p-3">
                     <div class="form-group row my-sm-1">
                         <label class="col-sm-4 col-form-label">Email</label>
@@ -40,8 +38,8 @@
 
                  </div>
                 <div class="my-sm-2 my-lg-5 my-md-3">
-                 <button  class="btn btn-outline-info">Connexion</button>
-                    <a th:href="@{/register}" class="btn btn-outline-primary my-md-3 my-sm-1"> S'enregistrer</a>
+                 <button class="btn btn-outline-secondary">S'enregitrer</button>
+                <a th:href="@{/login}" class="btn btn-outline-info my-md-3 my-sm-1"> Retour</a>
                </div>
 
             </form>
