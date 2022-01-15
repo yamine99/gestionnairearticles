@@ -1,11 +1,11 @@
 # Gestionnairearticles
 ### Application Spring Boot+ MYSQL + theymelef + JPA +  Bootstarp
 ##### Cette application utilse un serveur mysql
-##Architecture 
-###Backend 
-<img src="architecture.png" alt="My cool logo"/>
+## Architecture 
+### Backend 
+########### <img src="architecture.png" alt="My cool logo"/>
    
-###Front
+### Front
 ###### Bootstrap 5.3.1
 
 
