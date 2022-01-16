@@ -3,7 +3,7 @@ services:
   web: 
     build: .
     image: application
-
+    restart: always
     depends_on:
       - db
     ports:
