@@ -10,7 +10,7 @@
     <h2 class="card bg-info text-white h2 py-lg-3 py-md-2 py-sm-1" th:text="${pageTitle}">
     </h2>
 
-    <form th:action="@{/add/save}" method="post" th:object="${article}">
+    <form th:action="@{/accueil/add/save}" method="post" th:object="${article}">
             <input type="hidden" th:field="*{id}"/>
         <div class="border border-secondary rounded-2 p-3">
             <div class="form-group row my-sm-1">
@@ -51,7 +51,7 @@
 
          </div>
              <div class="my-sm-2 my-lg-5 my-md-3">
-                 <a class="btn btn-info text-white"  th:href="@{/}" >Voir list</a>
+                 <a class="btn btn-info text-white"  th:href="@{/accueil}" >Voir list</a>
                  <button class="btn btn-outline-success">Envoyer</button>
 
             </div>

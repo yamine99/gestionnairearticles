@@ -16,7 +16,7 @@ public class UserController {
   @Autowired
   private UserService service;
 
-   @GetMapping("/login")
+   @GetMapping("/")
     public String ShowLoginPage(Model model){
             model.addAttribute("user", new User());
         return "login";
@@ -25,7 +25,7 @@ public class UserController {
     @GetMapping("/register")
     public String ShowRegisterPage(Model model){
             model.addAttribute("user", new User());
-        return "registre";
+        return "register";
     }
 
     @PostMapping("/register/user/save")
@@ -33,16 +33,17 @@ public class UserController {
             service.save(user);
             ra.addFlashAttribute("message", "Un nouveau user a été ajouté !");
 
-      return "redirect:/login";
+      return "redirect:/";
     }
 
-    @PostMapping("/login/user/")
+    @PostMapping("/user")
       public String getUser(User user,  RedirectAttributes ra ){
            if(!service.get(user).isEmpty()){
-               return "redirect:/";
+               System.out.println(" la taille ...................................");
+                return "redirect:/accueil";
            }else {
                  ra.addFlashAttribute("message", "User non trouvé!");
-               return "redirect:/login";
+               return "redirect:/";
            }
 
 

@@ -22,22 +22,22 @@ public class ArticleController {
   @Autowired private ArticleService service;
 
 
-    @GetMapping("/")
+    @GetMapping("/accueil")
     public String showArticlList(Model model){
         List<Article> listArticles = service.listAll();
-
         model.addAttribute("listeArticles", listArticles);
-
 
         return "index";
     }
 
-    @GetMapping("/add")
+     @GetMapping("/accueil/add")
       public String ShowNewAddArticl(Model model, RedirectAttributes ra){
           model.addAttribute("article", new Article());
+
           String [] types = {"Accessoire", "Cosmétique", "Vêtement", "Gadget", "Outil", "Matérial informatique" };
           model.addAttribute("categories", types);
           model.addAttribute("pageTitle", "Ajouter un article");
+
           return "article_form";
     }
 
@@ -46,11 +46,11 @@ public class ArticleController {
             service.save(article);
             ra.addFlashAttribute("message", "Un nouveau article a été ajouté !");
 
-      return "redirect:/";
+         return "redirect:/accueil";
     }
 
 
-    @GetMapping("/update/{id}")
+    @GetMapping("/accueil/update/{id}")
       public String UpdateArticle(@PathVariable("id") int id, Model model, RedirectAttributes ra){
           String [] types = {"Accessoire", "Cosmétique", "Vêtement", "Gadget", "Outil", "Matérial informatique" };
           model.addAttribute("categories", types);
@@ -68,7 +68,7 @@ public class ArticleController {
     }
 
 
-       @GetMapping("/delete/{id}")
+       @GetMapping("/accueil/delete/{id}")
       public String DeleteArticle(@PathVariable("id") int id, RedirectAttributes ra){
 
         try{
@@ -77,7 +77,7 @@ public class ArticleController {
             return "redirect:/";
         }catch (ArticleService.ArticleNotFoundException e){
             ra.addFlashAttribute("message", e.getMessage());
-            return "redirect:/";
+            return "redirect:/accueil";
             }
 
 
