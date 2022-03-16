@@ -22,14 +22,23 @@ public class UserController {
         return "login";
     }
 
+    @GetMapping("/login")
+    public String ShowLoginPage2(Model model){
+        model.addAttribute("user", new User());
+        return "login";
+    }
+
     @GetMapping("/register")
     public String ShowRegisterPage(Model model){
             model.addAttribute("user", new User());
+            String [] roles = {"Responsable des études ", "Directeur" };
+            model.addAttribute("roles", roles);
         return "register";
     }
 
     @PostMapping("/register/user/save")
       public String SaveUser(User user, RedirectAttributes ra){
+       System.out.println(user.getRole());
             service.save(user);
             ra.addFlashAttribute("message", "Un nouveau user a été ajouté !");
 
@@ -39,7 +48,7 @@ public class UserController {
     @PostMapping("/user")
       public String getUser(User user,  RedirectAttributes ra ){
            if(!service.get(user).isEmpty()){
-               System.out.println(" la taille ...................................");
+
                 return "redirect:/accueil";
            }else {
                  ra.addFlashAttribute("message", "User non trouvé!");

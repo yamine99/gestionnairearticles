@@ -1,7 +1,10 @@
 package fr.ensup.webapp.service;
 
-import fr.ensup.webapp.model.Article;
-import fr.ensup.webapp.repository.ArticleRepository;
+
+import fr.ensup.webapp.model.Person;
+import fr.ensup.webapp.model.Student;
+import fr.ensup.webapp.repository.PersonRepository;
+import fr.ensup.webapp.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,16 +12,16 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ArticleService {
+public class StudentService {
 
-    @Autowired private ArticleRepository repo;
+    @Autowired private StudentRepository repo;
 
-    public List<Article> listAll(){
-        return (List<Article>) repo.findAll();
+    public List<Person> findAll(){
+        return (List<Person>) repo.findAll();
     }
 
-     public void save(Article article){
-       repo.save(article);
+     public void save(Student student){
+         repo.save(student);
     }
 
      public void delete(int id) throws ArticleNotFoundException {
@@ -32,8 +35,8 @@ public class ArticleService {
       }
 
 
-     public Article get(int id) throws ArticleNotFoundException {
-        Optional<Article> result=  repo.findById(id);
+     public Person get(int id) throws ArticleNotFoundException {
+        Optional<Person> result=  repo.findById(id);
 
         if(result.isPresent()){
             return result.get();
